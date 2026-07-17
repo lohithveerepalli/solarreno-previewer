@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@import "cesium/Build/Cesium/Widgets/widgets.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020617;
+  --foreground: #f1f5f9;
+  --solarreno-sky: #0ea5e9;
+  --solarreno-amber: #fbbf24;
 }
 
 @theme inline {
@@ -12,15 +15,120 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Cesium full-bleed canvas */
+.cesium-viewer,
+.cesium-viewer-cesiumWidgetContainer,
+.cesium-widget,
+.cesium-widget canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cesium-viewer-bottom,
+.cesium-viewer-toolbar,
+.cesium-viewer-animationContainer,
+.cesium-viewer-timelineContainer {
+  display: none !important;
+}
+
+/* Range slider polish */
+.solar-slider {
+  background: linear-gradient(
+    to right,
+    #334155 0%,
+    #0ea5e9 50%,
+    #fbbf24 100%
+  );
+}
+
+.solar-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #fff;
+  border: 2px solid #0ea5e9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.solar-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #fff;
+  border: 2px solid #0ea5e9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+/* driver.js theme */
+.solarreno-driver-theme {
+  background: #0f172a !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(148, 163, 184, 0.25) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55) !important;
+}
+
+.solarreno-driver-theme .driver-popover-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+.solarreno-driver-theme .driver-popover-description {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  color: #94a3b8 !important;
+}
+
+.solarreno-driver-theme .driver-popover-progress-text {
+  color: #64748b !important;
+  font-size: 12px !important;
+}
+
+.solarreno-driver-theme .driver-popover-next-btn,
+.solarreno-driver-theme .driver-popover-done-btn {
+  background: #0284c7 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  text-shadow: none !important;
+  font-size: 13px !important;
+  padding: 6px 12px !important;
+}
+
+.solarreno-driver-theme .driver-popover-prev-btn {
+  background: transparent !important;
+  color: #94a3b8 !important;
+  border: 1px solid #475569 !important;
+  border-radius: 8px !important;
+  text-shadow: none !important;
+  font-size: 13px !important;
+}
+
+.solarreno-driver-theme .driver-popover-close-btn {
+  color: #94a3b8 !important;
+}
+
+/* Scrollbars in side panels */
+aside::-webkit-scrollbar {
+  width: 6px;
+}
+aside::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
 }
