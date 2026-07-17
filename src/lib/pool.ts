@@ -17,12 +17,6 @@ export function addPoolAndDeck(Cesium: CesiumNS, viewer: Viewer): Entity[] {
     cfg.originNorth,
     cfg.heightAboveGround
   );
-  const waterPos = Cesium.Cartesian3.fromDegrees(
-    water.longitude,
-    water.latitude,
-    water.height
-  );
-
   // Pool shell (slightly larger / deeper dark liner)
   entities.push(
     viewer.entities.add({
@@ -172,6 +166,5 @@ export function addPoolAndDeck(Cesium: CesiumNS, viewer: Viewer): Entity[] {
     );
   }
 
-  void waterPos;
   return entities;
 }

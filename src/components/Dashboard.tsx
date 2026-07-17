@@ -252,18 +252,20 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* Left: info card */}
-      <aside className="pointer-events-none absolute bottom-auto left-0 top-20 z-20 max-h-[calc(100dvh-6rem)] w-full max-w-sm overflow-y-auto p-3 sm:p-4 md:bottom-4 md:top-auto">
+      {/* Left: info card — compact header on phones, full detail on tablet+ */}
+      <aside className="pointer-events-none absolute left-0 top-[4.5rem] z-20 max-h-[min(55dvh,28rem)] w-full max-w-sm overflow-y-auto p-2 sm:max-h-[min(70dvh,32rem)] sm:p-4 lg:bottom-4 lg:top-auto">
         <Card id="info-card" className="pointer-events-auto">
-          <CardHeader>
-            <div className="mb-1 flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-sky-400">
+          <CardHeader className="p-3 sm:p-4 sm:pb-2">
+            <div className="mb-1 flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-sky-400 sm:text-[11px]">
               <MapPin className="h-3.5 w-3.5" />
               Personal renovation preview
             </div>
-            <CardTitle className="text-base">{DEMO_HOUSE.label}</CardTitle>
-            <CardDescription>{DEMO_HOUSE.addressLine}</CardDescription>
+            <CardTitle className="text-sm sm:text-base">{DEMO_HOUSE.label}</CardTitle>
+            <CardDescription className="text-[11px] sm:text-xs">
+              {DEMO_HOUSE.addressLine}
+            </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-3">
+          <CardContent className="hidden space-y-3 p-3 pt-0 sm:block sm:p-4 sm:pt-2">
             <p className="text-xs leading-relaxed text-slate-300">
               {DEMO_HOUSE.description}
             </p>
@@ -294,7 +296,7 @@ export default function Dashboard() {
       </aside>
 
       {/* Right / bottom control panel */}
-      <div className="pointer-events-none absolute bottom-0 right-0 z-20 flex w-full max-w-md flex-col gap-3 p-3 sm:p-4">
+      <div className="pointer-events-none absolute bottom-0 right-0 z-20 flex w-full max-w-md flex-col gap-2 p-2 sm:gap-3 sm:p-4">
         <Card className="pointer-events-auto">
           <CardHeader className="pb-1">
             <CardTitle>Renovation layers</CardTitle>

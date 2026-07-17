@@ -92,14 +92,6 @@ export function addSolarPanelArray(
       });
       entities.push(panel);
 
-      // Thin brighter strip at top edge to suggest bus bars / frame highlight
-      const highlightOffset = panelLength * 0.42;
-      const hEast = east + downslopeE * highlightOffset * Math.cos(pitch) * 0.15;
-      const hNorth = north + downslopeN * highlightOffset * Math.cos(pitch) * 0.15;
-      const hUp = up + panelThickness * 0.6;
-      const hPos = enuToLonLatHeight(hEast, hNorth, hUp);
-      // Skip extra entities for cleanliness — single box is enough for MVP
-      void hPos;
     }
   }
 
